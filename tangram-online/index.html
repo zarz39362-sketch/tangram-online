@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فعالیت آنلاین تانگرام</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="loginPage" class="page">
+
+    <div class="login-card">
+
+        <h1>فعالیت آنلاین تانگرام</h1>
+
+        <p class="subtitle">
+            لطفاً نام و نام خانوادگی خود را وارد کنید
+        </p>
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="نام و نام خانوادگی">
+
+        <button id="startBtn">
+            شروع فعالیت
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="gamePage" class="page hidden">
+
+    <header>
+
+        <div class="stage-info">
+
+            <h2 id="stageTitle">
+                مرحله اول
+            </h2>
+
+            <span id="stageName">
+                🏠 خانه
+            </span>
+
+        </div>
+
+        <div class="timer">
+            ⏱ <span id="timer">00:00</span>
+        </div>
+
+    </header>
+
+
+    <div class="game-container">
+
+        <!-- الگوی هدف -->
+        <div class="target-area">
+
+            <h3>الگوی هدف</h3>
+
+            <div id="targetShape">
+
+                <img
+                    src="assets/house.svg"
+                    alt="خانه">
+
+            </div>
+
+        </div>
+
+
+        <!-- قطعات تانگرام -->
+        <div class="workspace">
+
+            <h3>قطعات تانگرام</h3>
+
+            <div id="board">
+
+                <div class="piece big-triangle"></div>
+
+                <div class="piece big-triangle2"></div>
+
+                <div class="piece medium-triangle"></div>
+
+                <div class="piece small-triangle"></div>
+
+                <div class="piece small-triangle2"></div>
+
+                <div class="piece square-piece"></div>
+
+                <div class="piece parallelogram"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <div class="progress-header">
+
+            <span>درصد پیشرفت</span>
+
+            <span id="progressText">
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div id="progressFill"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button id="submitBtn">
+            ثبت پاسخ
+        </button>
+
+        <button id="nextBtn">
+            مرحله بعد
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/tangram.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
