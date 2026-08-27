@@ -3,24 +3,26 @@ const API_URL =
 
 async function sendResult(data){
 
+const formData = new FormData();
+
+for(const key in data){
+formData.append(key,data[key]);
+}
+
 try{
 
 const response = await fetch(API_URL,{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
+body:formData
 });
 
-const result = await response.json();
+const result = await response.text();
 
 return result;
 
 }catch(error){
 
 console.error(error);
-
 throw error;
 
 }
