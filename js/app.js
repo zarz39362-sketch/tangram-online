@@ -30,7 +30,7 @@ startBtn.addEventListener("click",()=>{
 const name = studentNameInput.value.trim();
 
 if(name===""){
-alert("لطفاً نام و نام خانوادگی خود را وارد کنید");
+alert("لطفاً نام و نام خانوادگی خود را وارد کنید.");
 return;
 }
 
@@ -76,7 +76,7 @@ loadLevel();
 
 }else{
 
-alert("فعالیت به پایان رسید 🎉");
+alert("🏆 تبریک! همه مراحل را با موفقیت انجام دادی.");
 
 }
 
@@ -108,15 +108,21 @@ try{
 
 const response = await sendResult(result);
 
-console.log(response);
+if(response === "success"){
 
-alert(JSON.stringify(response));
+alert("🌟 آفرین! پاسخ شما با موفقیت ثبت شد.");
+
+}else{
+
+alert("⚠️ پاسخ ارسال شد اما پاسخی غیرمنتظره دریافت شد.");
+
+}
 
 }catch(error){
 
 console.error(error);
 
-alert(error);
+alert("❌ خطا در ارسال اطلاعات. لطفاً دوباره تلاش کنید.");
 
 }
 
