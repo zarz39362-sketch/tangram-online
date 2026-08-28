@@ -71,9 +71,11 @@ document.removeEventListener("touchend", stopDrag);
 
 /* چرخش */
 
-piece.addEventListener("dblclick",()=>{
+piece.addEventListener("click",()=>{
 
-rotation += 45;
+alert("چرخش تست");
+
+});
 
 piece.style.transform =
 `rotate(${rotation}deg)`;
