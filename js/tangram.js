@@ -7,10 +7,6 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
-let rotation = 0;
-
-/* جابجایی */
-
 piece.addEventListener("mousedown", startDrag);
 piece.addEventListener("touchstart", startDrag,{passive:false});
 
@@ -69,16 +65,4 @@ document.removeEventListener("touchend", stopDrag);
 
 }
 
-/* چرخش */
-
-piece.addEventListener("click",()=>{
-
-alert("چرخش تست");
-
 });
-
-piece.style.transform =
-`rotate(${rotation}deg)`;
-
-});
-
