@@ -5,8 +5,6 @@ const gamePage = document.getElementById("gamePage");
 
 const studentNameInput = document.getElementById("studentName");
 
-const timerElement = document.getElementById("timer");
-
 const levels = [
 {
 title:"مرحله اول",
@@ -42,22 +40,6 @@ return;
 localStorage.setItem("studentName",name);
 
 startTime = Date.now();
-
-timerInterval = setInterval(()=>{
-
-const elapsedSeconds =
-Math.floor((Date.now() - startTime) / 1000);
-
-const minutes =
-Math.floor(elapsedSeconds / 60);
-
-const seconds =
-elapsedSeconds % 60;
-
-timerElement.textContent =
-`${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
-
-},1000);
 
 loginPage.classList.add("hidden");
 gamePage.classList.remove("hidden");
