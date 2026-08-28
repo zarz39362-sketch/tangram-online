@@ -1,5 +1,7 @@
 const pieces = document.querySelectorAll(".piece");
 
+let selectedPiece = null;
+
 pieces.forEach(piece => {
 
 let isDragging = false;
@@ -7,12 +9,24 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
+let rotation = 0;
+
+piece.dataset.rotation = 0;
+
+piece.addEventListener("click",()=>{
+
+selectedPiece = piece;
+
+});
+
 piece.addEventListener("mousedown", startDrag);
 piece.addEventListener("touchstart", startDrag,{passive:false});
 
 function startDrag(e){
 
 e.preventDefault();
+
+selectedPiece = piece;
 
 isDragging = true;
 
@@ -64,5 +78,29 @@ document.removeEventListener("touchmove", drag);
 document.removeEventListener("touchend", stopDrag);
 
 }
+
+});
+
+document
+.getElementById("rotateBtn")
+.addEventListener("click",()=>{
+
+if(!selectedPiece){
+
+alert("ابتدا یک قطعه را انتخاب کنید.");
+
+return;
+
+}
+
+let rotation =
+parseInt(selectedPiece.dataset.rotation);
+
+rotation += 45;
+
+selectedPiece.dataset.rotation = rotation;
+
+selectedPiece.style.transform =
+`rotate(${rotation}deg)`;
 
 });
