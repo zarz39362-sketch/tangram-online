@@ -103,7 +103,7 @@ selectedPiece.dataset.rotation = rotation;
 if(selectedPiece.classList.contains("parallelogram")){
 
 selectedPiece.style.transform =
-`skew(-25deg) rotate(${rotation}deg)`;
+`rotate(${rotation}deg) skew(-25deg)`;
 
 }else if(selectedPiece.classList.contains("square-piece")){
 
