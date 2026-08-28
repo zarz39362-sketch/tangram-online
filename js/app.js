@@ -5,6 +5,8 @@ const gamePage = document.getElementById("gamePage");
 
 const studentNameInput = document.getElementById("studentName");
 
+const timerElement = document.getElementById("timer");
+
 const levels = [
 {
 title:"مرحله اول",
@@ -25,8 +27,8 @@ image:"assets/cat.svg"
 
 let currentLevel = 0;
 
-/* زمان شروع فعالیت */
 let startTime = null;
+let timerInterval = null;
 
 startBtn.addEventListener("click",()=>{
 
@@ -37,10 +39,25 @@ alert("لطفاً نام و نام خانوادگی خود را وارد کنی�
 return;
 }
 
-/* ثبت زمان شروع */
+localStorage.setItem("studentName",name);
+
 startTime = Date.now();
 
-localStorage.setItem("studentName",name);
+timerInterval = setInterval(()=>{
+
+const elapsedSeconds =
+Math.floor((Date.now() - startTime) / 1000);
+
+const minutes =
+Math.floor(elapsedSeconds / 60);
+
+const seconds =
+elapsedSeconds % 60;
+
+timerElement.textContent =
+`${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
+
+},1000);
 
 loginPage.classList.add("hidden");
 gamePage.classList.remove("hidden");
@@ -69,6 +86,23 @@ opacity:.35;
 ">
 `;
 
+updateProgress();
+
+}
+
+function updateProgress(){
+
+const progress =
+Math.round(
+((currentLevel + 1) / levels.length) * 100
+);
+
+document.getElementById("progressText")
+.textContent = progress + "%";
+
+document.getElementById("progressFill")
+.style.width = progress + "%";
+
 }
 
 document.getElementById("nextBtn")
@@ -94,7 +128,6 @@ document.getElementById("submitBtn")
 const studentName =
 localStorage.getItem("studentName") || "";
 
-/* محاسبه زمان سپری شده */
 const elapsedSeconds =
 Math.floor((Date.now() - startTime) / 1000);
 
@@ -128,6 +161,8 @@ try{
 const response = await sendResult(result);
 
 if(response === "success"){
+
+clearInterval(timerInterval);
 
 alert("🌟 آفرین! پاسخ شما با موفقیت ثبت شد.");
 
