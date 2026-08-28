@@ -25,6 +25,9 @@ image:"assets/cat.svg"
 
 let currentLevel = 0;
 
+/* زمان شروع فعالیت */
+let startTime = null;
+
 startBtn.addEventListener("click",()=>{
 
 const name = studentNameInput.value.trim();
@@ -33,6 +36,9 @@ if(name===""){
 alert("لطفاً نام و نام خانوادگی خود را وارد کنید.");
 return;
 }
+
+/* ثبت زمان شروع */
+startTime = Date.now();
 
 localStorage.setItem("studentName",name);
 
@@ -88,13 +94,26 @@ document.getElementById("submitBtn")
 const studentName =
 localStorage.getItem("studentName") || "";
 
+/* محاسبه زمان سپری شده */
+const elapsedSeconds =
+Math.floor((Date.now() - startTime) / 1000);
+
+const minutes =
+Math.floor(elapsedSeconds / 60);
+
+const seconds =
+elapsedSeconds % 60;
+
+const timeSpent =
+`${minutes}:${seconds.toString().padStart(2,"0")}`;
+
 const result = {
 
 StudentName: studentName,
 
 Level: levels[currentLevel].name,
 
-TimeSpent: "0",
+TimeSpent: timeSpent,
 
 Moves: "0",
 
