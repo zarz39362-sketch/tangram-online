@@ -130,8 +130,6 @@ Level: levels[currentLevel].name,
 
 TimeSpent: timeSpent,
 
-Moves: "0",
-
 Progress: Math.round(
 ((currentLevel + 1) / levels.length) * 100
 )
