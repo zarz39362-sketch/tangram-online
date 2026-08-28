@@ -82,4 +82,3 @@ piece.style.transform =
 
 });
 
-});
