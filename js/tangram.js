@@ -1,5 +1,7 @@
 const pieces = document.querySelectorAll(".piece");
 
+alert("تعداد قطعات: " + pieces.length);
+
 pieces.forEach(piece => {
 
 let isDragging = false;
