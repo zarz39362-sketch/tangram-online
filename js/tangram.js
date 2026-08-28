@@ -14,6 +14,8 @@ piece.addEventListener("touchstart", startDrag,{passive:false});
 
 function startDrag(e){
 
+alert("drag started");
+
 e.preventDefault();
 
 isDragging = true;
