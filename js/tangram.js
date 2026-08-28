@@ -1,7 +1,5 @@
 const pieces = document.querySelectorAll(".piece");
 
-alert("تعداد قطعات: " + pieces.length);
-
 pieces.forEach(piece => {
 
 let isDragging = false;
@@ -13,8 +11,6 @@ piece.addEventListener("mousedown", startDrag);
 piece.addEventListener("touchstart", startDrag,{passive:false});
 
 function startDrag(e){
-
-alert("drag started");
 
 e.preventDefault();
 
